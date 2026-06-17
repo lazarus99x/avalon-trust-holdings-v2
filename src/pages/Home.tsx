@@ -205,7 +205,7 @@ export const Home: React.FC = () => {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-gray-100">
                 <img
-                  src="https://images.unsplash.com/photo-1596647616796-3826b76af2fc?auto=format&fit=crop&q=80&w=1200"
+                  src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&q=80&w=1200"
                   alt="Air Freight"
                   className="w-full h-[500px] object-cover"
                   referrerPolicy="no-referrer"
