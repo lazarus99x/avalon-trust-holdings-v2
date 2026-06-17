@@ -4,7 +4,7 @@ import { Package, User, LogOut, LayoutDashboard, Shield, Menu, X } from 'lucide-
 import { useAuth } from './AuthProvider';
 import { supabase } from '../lib/supabase';
 import { cn } from '../lib/utils';
-import athLogo from '../upslogo.png';
+import athLogo from '../athlogo.png';
 
 export const Navbar: React.FC = () => {
   const { user, profile, isStaff } = useAuth();

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, ArrowRight, Package, Shield, Globe, Clock, HelpCircle } from 'lucide-react';
 import { motion } from 'motion/react';
-import athLogo from '../upslogo.png';
+import athLogo from '../athlogo.png';
 
 export const Tracking: React.FC = () => {
   const [trackingId, setTrackingId] = useState('');
