@@ -65,7 +65,7 @@ export const ShipmentDetail: React.FC = () => {
       <html>
       <head>
         <meta charset="utf-8" />
-        <title>UPS Shipment Invoice – ${shipment.trackingNumber}</title>
+        <title>ATH Shipment Invoice – ${shipment.trackingNumber}</title>
         <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }
           body { font-family: 'Arial', sans-serif; padding: 40px; color: #1a1a1a; background: #fff; }
@@ -81,8 +81,8 @@ export const ShipmentDetail: React.FC = () => {
                 <span style="color:#F5C40A;font-size:22px;font-weight:900">U</span>
               </div>
               <div>
-                <div style="font-size:24px;font-weight:900;color:#4B2E06;letter-spacing:-1px">UPS</div>
-                <div style="font-size:9px;font-weight:700;color:#888;letter-spacing:3px;text-transform:uppercase">United Parcel Service</div>
+                <div style="font-size:24px;font-weight:900;color:#4B2E06;letter-spacing:-1px">ATH</div>
+                <div style="font-size:9px;font-weight:700;color:#888;letter-spacing:3px;text-transform:uppercase">Avalon Trust Holdings</div>
               </div>
             </div>
             <div style="font-size:11px;color:#888;margin-top:4px">Shipment Tracking Invoice</div>
@@ -153,7 +153,7 @@ export const ShipmentDetail: React.FC = () => {
 
         <!-- Footer -->
         <div style="margin-top:40px;padding-top:20px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center">
-          <div style="font-size:10px;color:#bbb">© ${new Date().getFullYear()} United Parcel Service, Inc. All rights reserved.</div>
+          <div style="font-size:10px;color:#bbb">© ${new Date().getFullYear()} Avalon Trust Holdings, Inc. All rights reserved.</div>
           <div style="font-size:10px;color:#bbb">Document generated on ${format(new Date(), 'MMMM dd, yyyy')} at ${format(new Date(), 'HH:mm')}</div>
         </div>
 

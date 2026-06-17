@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, ArrowRight, Package, Shield, Globe, Clock, HelpCircle } from 'lucide-react';
 import { motion } from 'motion/react';
-import upsLogo from '../upslogo.png';
+import athLogo from '../upslogo.png';
 
 export const Tracking: React.FC = () => {
   const [trackingId, setTrackingId] = useState('');
@@ -18,15 +18,15 @@ export const Tracking: React.FC = () => {
   const faqs = [
     {
       q: "Where can I find my tracking number?",
-      a: "Tracking numbers are typically found in your shipping confirmation email or on the receipt provided at the UPS Store."
+      a: "Tracking numbers are typically found in your shipping confirmation email or on the receipt provided at the ATH Location."
     },
     {
       q: "When will my tracking info be updated?",
-      a: "Tracking information is updated each time a barcode is scanned in the UPS delivery system. This can take up to 24 hours after pickup."
+      a: "Tracking information is updated each time a barcode is scanned in the ATH delivery system. This can take up to 24 hours after pickup."
     },
     {
       q: "What does 'In Transit' mean?",
-      a: "This means your package is moving within the UPS network and is on its way to the final destination."
+      a: "This means your package is moving within the ATH network and is on its way to the final destination."
     }
   ];
 
@@ -62,7 +62,7 @@ export const Tracking: React.FC = () => {
                   type="text"
                   value={trackingId}
                   onChange={(e) => setTrackingId(e.target.value)}
-                  placeholder="Enter Tracking Number (e.g. UPS-123456)"
+                  placeholder="Enter Tracking Number (e.g. ATH-123456)"
                   className="w-full pl-12 sm:pl-16 pr-28 sm:pr-40 py-5 sm:py-7 bg-white border-2 border-transparent rounded-2xl sm:rounded-3xl text-sm sm:text-lg focus:ring-4 focus:ring-ups-yellow/20 focus:border-ups-brown transition-all outline-none shadow-2xl shadow-ups-brown/5"
                 />
                 <button
@@ -100,7 +100,7 @@ export const Tracking: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold text-ups-brown mb-4 tracking-tight">Need help finding your number?</h3>
                   <p className="text-gray-500 leading-relaxed font-medium">
-                    Your tracking number can be found in several places. Check your email for a shipment confirmation or look at the receipt from your UPS Store representative. If you have a UPS profile, you can also view your full shipment history there.
+                    Your tracking number can be found in several places. Check your email for a shipment confirmation or look at the receipt from your ATH Location representative. If you have a UPS profile, you can also view your full shipment history there.
                   </p>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export const Tracking: React.FC = () => {
               <div className="p-8 bg-ups-brown rounded-[2.5rem] text-white space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-ups-yellow rounded-xl flex items-center justify-center p-1.5">
-                    <img src={upsLogo} alt="UPS Logo" className="w-full h-full object-contain" />
+                    <img src={athLogo} alt="ATH Logo" className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <h4 className="font-bold">Shipment Protection</h4>
@@ -116,7 +116,7 @@ export const Tracking: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-sm text-white/70 leading-relaxed font-medium">
-                  At UPS, we ensure every shipment is protected. Our real-time monitoring and global security infrastructure keep your goods safe from origin to destination.
+                  At ATH, we ensure every shipment is protected. Our real-time monitoring and global security infrastructure keep your goods safe from origin to destination.
                 </p>
               </div>
             </div>
@@ -144,7 +144,7 @@ export const Tracking: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="p-10 rounded-[3rem] border-2 border-dashed border-ups-yellow/30 space-y-6">
             <h3 className="text-2xl font-black text-ups-brown tracking-tight">Manage all your shipments in one place</h3>
-            <p className="text-gray-500 font-medium">Sign in to your UPS My Choice account to see all your active shipments, set delivery preferences, and get advanced notifications.</p>
+            <p className="text-gray-500 font-medium">Sign in to your ATH My Choice account to see all your active shipments, set delivery preferences, and get advanced notifications.</p>
             <button 
               onClick={() => navigate('/login')}
               className="bg-ups-brown text-ups-yellow px-10 py-4 rounded-2xl font-bold hover:bg-ups-brown/90 transition-all shadow-xl"

@@ -50,7 +50,7 @@ export const USAHomeMap: React.FC = () => {
         <Marker position={position} icon={upsIcon}>
           <Popup className="ups-popup">
             <div className="p-2 min-w-[150px]">
-              <h4 className="font-black text-ups-brown text-sm uppercase mb-1">UPS Logistics Center</h4>
+              <h4 className="font-black text-ups-brown text-sm uppercase mb-1">ATH Logistics Center</h4>
               <p className="text-[10px] text-gray-500 font-medium">Main Hub - Central USA</p>
               <div className="mt-2 flex items-center justify-between">
                 <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">ONLINE</span>

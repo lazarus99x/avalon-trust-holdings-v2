@@ -20,10 +20,10 @@ export const Support: React.FC = () => {
   ];
 
   const faqs = [
-    { q: "How do I redirect my package?", a: "You can use UPS My Choice® to change the delivery address or provide specific instructions for your driver." },
+    { q: "How do I redirect my package?", a: "You can use ATH My Choice® to change the delivery address or provide specific instructions for your driver." },
     { q: "What should I do if my package is late?", a: "Check the latest status on the Tracking page. If the estimated delivery has passed by more than 24 hours, you can initiate a claim." },
-    { q: "How do I find a nearby UPS Access Point?", a: "Visit our Locations page and enter your zip code to see all nearby drop-off and pickup locations." },
-    { q: "Can I schedule a pickup online?", a: "Yes, you can schedule a one-time pickup or set up recurring pickups through your UPS business profile." }
+    { q: "How do I find a nearby ATH Access Point?", a: "Visit our Locations page and enter your zip code to see all nearby drop-off and pickup locations." },
+    { q: "Can I schedule a pickup online?", a: "Yes, you can schedule a one-time pickup or set up recurring pickups through your ATH business profile." }
   ];
 
   return (
@@ -122,8 +122,8 @@ export const Support: React.FC = () => {
                   
                   <div className="space-y-4">
                     {[
-                      { icon: <Phone className="w-5 h-5" />, label: "Call Us", data: "1-800-PICK-UPS" },
-                      { icon: <Mail className="w-5 h-5" />, label: "Email Support", data: "help@ups.com" },
+                      { icon: <Phone className="w-5 h-5" />, label: "Call Us", data: "" },
+                      { icon: <Mail className="w-5 h-5" />, label: "Email Support", data: "help@ath-holdings.com" },
                       { icon: <MessageSquare className="w-5 h-5" />, label: "Live Chat", data: "Start a session" }
                     ].map((item, i) => (
                       <button key={i} className="w-full flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-ups-yellow hover:text-ups-brown group/item transition-all text-left">
@@ -142,8 +142,8 @@ export const Support: React.FC = () => {
               {/* Resource Cards */}
               <div className="space-y-4">
                 {[
-                  { icon: <BookOpen className="w-5 h-5" />, title: "UPS User Guides", desc: "Digital manuals for all UPS platforms." },
-                  { icon: <MapPin className="w-5 h-5" />, title: "Location Search", desc: "Find UPS stores and access points." },
+                  { icon: <BookOpen className="w-5 h-5" />, title: "ATH User Guides", desc: "Digital manuals for all ATH platforms." },
+                  { icon: <MapPin className="w-5 h-5" />, title: "Location Search", desc: "Find ATH locations and access points." },
                   { icon: <Clock className="w-5 h-5" />, title: "Live Delays", desc: "View regional weather & tech status." }
                 ].map((res, i) => (
                   <div key={i} className="p-6 bg-gray-50 border border-gray-100 rounded-3xl flex items-center gap-4 hover:border-ups-yellow/20 transition-all group cursor-pointer">

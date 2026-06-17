@@ -4,7 +4,7 @@ import { Package, User, LogOut, LayoutDashboard, Shield, Menu, X } from 'lucide-
 import { useAuth } from './AuthProvider';
 import { supabase } from '../lib/supabase';
 import { cn } from '../lib/utils';
-import upsLogo from '../upslogo.png';
+import athLogo from '../upslogo.png';
 
 export const Navbar: React.FC = () => {
   const { user, profile, isStaff } = useAuth();
@@ -50,11 +50,11 @@ export const Navbar: React.FC = () => {
             <div className="flex items-center gap-12">
               <Link to="/" className="flex items-center gap-3 group">
                 <div className="w-12 h-12 flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <img src={upsLogo} alt="UPS Logo" className="w-full h-full object-contain" />
+                  <img src={athLogo} alt="ATH Logo" className="w-full h-full object-contain" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xl sm:text-2xl font-black tracking-tighter text-ups-brown leading-none">UPS</span>
-                  <span className="text-[7px] sm:text-[8px] font-bold text-ups-brown/60 uppercase tracking-widest">United Parcel Service</span>
+                  <span className="text-xl sm:text-2xl font-black tracking-tighter text-ups-brown leading-none">ATH</span>
+                  <span className="text-[7px] sm:text-[8px] font-bold text-ups-brown/60 uppercase tracking-widest">Avalon Trust Holdings</span>
                 </div>
               </Link>
 

@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "../lib/utils";
-import upsLogo from "../upslogo.png";
+import athLogo from "../upslogo.png";
 
 const commonCountryCoords: Record<string, { lat: number; lng: number }> = {
   "united states": { lat: 37.0902, lng: -95.7129 },
@@ -118,12 +118,12 @@ const geocodeAddress = async (
   }
 
   try {
-    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&limit=1&email=admin@ups-clone.com`;
+    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&limit=1&email=admin@ath-holdings.com`;
     // Explicit User-Agent required by Nominatim usage policy
     const res = await fetch(url, {
       headers: {
         "Accept-Language": "en",
-        "User-Agent": "UPS-Clone/1.0 (admin@ups-clone.com)",
+        "User-Agent": "ATH-Clone/1.0 (admin@ath-holdings.com)",
       },
     });
     const data = await res.json();
@@ -653,7 +653,7 @@ export const Admin: React.FC = () => {
                   <tr>
                     <td colSpan={6} className="px-6 py-16 text-center">
                       <img
-                        src={upsLogo}
+                        src={athLogo}
                         alt="UPS Logo"
                         className="w-16 h-16 mx-auto mb-3 object-contain opacity-20 grayscale"
                       />
@@ -672,7 +672,7 @@ export const Admin: React.FC = () => {
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 bg-gray-50 border border-gray-100 rounded-xl flex items-center justify-center p-1.5 transition-colors">
                             <img
-                              src={upsLogo}
+                              src={athLogo}
                               alt="UPS Shield"
                               className="w-full h-full object-contain"
                             />

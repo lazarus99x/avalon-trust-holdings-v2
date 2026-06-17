@@ -17,13 +17,13 @@ export const WorldMap: React.FC = () => {
           <div className="relative z-10">
             <span className="inline-flex items-center gap-2 rounded-full border border-ups-yellow/30 bg-white/80 px-4 py-2 text-[11px] font-black uppercase tracking-[0.3em] text-ups-brown shadow-sm backdrop-blur">
               <Globe2 className="h-4 w-4 text-ups-yellow-dark" />
-              UPS Global Network
+              ATH Global Network
             </span>
             <h1 className="mt-6 max-w-4xl text-5xl font-black tracking-[-0.06em] text-ups-brown sm:text-6xl lg:text-7xl">
-              Explore the UPS world map with a branded live Google view.
+              Explore the ATH world map with a branded live Google view.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-ups-brown/70 sm:text-lg">
-              This page keeps the same UPS visual language already used across the site while giving you a dedicated
+              This page keeps the same ATH visual language already used across the site while giving you a dedicated
               map surface for global network storytelling, routing context, and public location visibility.
             </p>
 
@@ -51,7 +51,7 @@ export const WorldMap: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.28em] text-ups-yellow/80">Brand Standard</p>
-                  <h2 className="text-2xl font-black tracking-tight">Consistent with the current UPS look</h2>
+                  <h2 className="text-2xl font-black tracking-tight">Consistent with the current ATH look</h2>
                 </div>
               </div>
               <p className="mt-6 text-sm leading-7 text-white/70">

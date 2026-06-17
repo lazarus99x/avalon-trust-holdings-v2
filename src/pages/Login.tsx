@@ -34,7 +34,7 @@ export const Login: React.FC = () => {
           <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 backdrop-blur-sm border border-ups-yellow/20">
             <Package className="text-ups-yellow w-8 h-8" />
           </div>
-          <h1 className="text-2xl font-bold tracking-tight">UPS Admin Portal</h1>
+          <h1 className="text-2xl font-bold tracking-tight">ATH Admin Portal</h1>
           <p className="text-ups-yellow/70 text-sm mt-2 font-medium">Sign in to manage shipments and track deliveries.</p>
         </div>
 
