@@ -1,0 +1,501 @@
+1|import React, { useState, useEffect } from "react";
+2|import { useNavigate } from "react-router-dom";
+3|import {
+4|  Search,
+5|  Package,
+6|  MapPin,
+7|  ArrowRight,
+8|  Truck,
+9|  Shield,
+10|  Clock,
+11|  Globe,
+12|  Building2,
+13|  CreditCard,
+14|  Zap,
+15|  BarChart3,
+16|  Globe2,
+17|  ChevronRight,
+18|  Play,
+19|} from "lucide-react";
+20|import { motion, AnimatePresence } from "motion/react";
+21|import { USAHomeMap } from "../components/USAHomeMap";
+22|
+23|export const Home: React.FC = () => {
+24|  const [trackingId, setTrackingId] = useState("");
+25|  const [liveStat, setLiveStat] = useState(0);
+26|  const navigate = useNavigate();
+27|
+28|  useEffect(() => {
+29|    const interval = setInterval(() => {
+30|      setLiveStat((prev) => prev + Math.floor(Math.random() * 5) + 1);
+31|    }, 3000);
+32|    return () => clearInterval(interval);
+33|  }, []);
+34|
+35|  const handleSearch = (e: React.FormEvent) => {
+36|    e.preventDefault();
+37|    if (trackingId.trim()) {
+38|      navigate(`/tracking/${trackingId}`);
+39|    }
+40|  };
+41|
+42|  const services = [
+43|    {
+44|      title: "Shipping",
+45|      description: "Create a new shipment and print labels.",
+46|      icon: <Package className="w-6 h-6" />,
+47|      image:
+48|        "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=80&w=800",
+49|    },
+50|    {
+51|      title: "Tracking",
+52|      description: "Monitor your packages in real-time.",
+53|      icon: <MapPin className="w-6 h-6" />,
+54|      image:
+55|        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+56|    },
+57|    {
+58|      title: "Billing",
+59|      description: "Manage invoices and payment methods.",
+60|      icon: <CreditCard className="w-6 h-6" />,
+61|      image:
+62|        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
+63|    },
+64|    {
+65|      title: "International",
+66|      description: "Global shipping and customs solutions.",
+67|      icon: <Globe className="w-6 h-6" />,
+68|      image:
+69|        "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=800",
+70|    },
+71|  ];
+72|
+73|  return (
+74|    <div className="min-h-[calc(100vh-64px)] bg-white">
+75|      {/* Live Status Bar */}
+76|      <div className="bg-ups-brown text-ups-yellow py-2 px-4 overflow-hidden whitespace-nowrap border-b border-ups-yellow/10">
+77|        <div className="max-w-7xl mx-auto flex items-center justify-between">
+78|          <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em]">
+79|            <span className="flex items-center gap-1.5">
+80|              <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+81|              Network Status: Optimal
+82|            </span>
+83|            <span className="hidden sm:inline opacity-50">|</span>
+84|            <span className="hidden sm:inline">
+85|              Live Deliveries Today:{" "}
+86|              <span className="text-white">
+87|                {(1245832 + liveStat).toLocaleString()}
+88|              </span>
+89|            </span>
+90|          </div>
+91|          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
+92|            <Zap className="w-3 h-3" />
+93|            Priority Processing Active
+94|          </div>
+95|        </div>
+96|      </div>
+97|
+98|      {/* Hero Section */}
+99|      <section className="relative pt-24 pb-32 overflow-hidden">
+100|        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+101|          <div className="grid lg:grid-cols-2 gap-16 items-center">
+102|            <motion.div
+103|              initial={{ opacity: 0, y: 20 }}
+104|              animate={{ opacity: 1, y: 0 }}
+105|              transition={{ duration: 0.8 }}
+106|              className="text-center lg:text-left"
+107|            >
+108|              <span className="inline-block px-4 py-1.5 bg-ups-yellow/10 text-ups-brown text-[10px] sm:text-xs font-bold uppercase tracking-widest rounded-full mb-6 border border-ups-yellow/20">
+109|                ATH Global Shipping
+110|              </span>
+111|              <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-ups-brown tracking-tighter leading-[0.9] mb-8">
+112|                Moving the <br />
+113|                <span className="text-ups-yellow-dark">world forward.</span>
+114|              </h1>
+115|              <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-12 leading-relaxed max-w-lg mx-auto lg:mx-0">
+116|                ATH provides real-time visibility and precision control over
+117|                your logistics. Enter your tracking number below to see your
+118|                package's journey.
+119|              </p>
+120|
+121|              <div className="relative max-w-xl mx-auto lg:mx-0">
+122|                <form onSubmit={handleSearch} className="relative">
+123|                  <div className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-gray-400">
+124|                    <Search className="w-5 h-5 sm:w-6 sm:h-6" />
+125|                  </div>
+126|                  <input
+127|                    type="text"
+128|                    value={trackingId}
+129|                    onChange={(e) => setTrackingId(e.target.value)}
+130|                    placeholder="Tracking (e.g. ATH-123456)"
+131|                    className="w-full pl-12 sm:pl-16 pr-28 sm:pr-40 py-5 sm:py-7 bg-white border-2 border-gray-100 rounded-2xl sm:rounded-3xl text-sm sm:text-lg focus:ring-4 focus:ring-ups-yellow/20 focus:border-ups-brown transition-all outline-none shadow-2xl shadow-ups-brown/5"
+132|                  />
+133|                  <button
+134|                    type="submit"
+135|                    className="absolute right-2 top-2 bottom-2 bg-ups-brown text-ups-yellow px-4 sm:px-8 rounded-xl sm:rounded-2xl font-bold hover:bg-ups-brown/90 transition-all flex items-center gap-2 group text-xs sm:text-base"
+136|                  >
+137|                    Track
+138|                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+139|                  </button>
+140|                </form>
+141|              </div>
+142|            </motion.div>
+143|
+144|            <motion.div
+145|              initial={{ opacity: 0, scale: 0.9 }}
+146|              animate={{ opacity: 1, scale: 1 }}
+147|              transition={{ duration: 1, delay: 0.2 }}
+148|              className="relative hidden lg:block"
+149|            >
+150|              <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
+151|                <img
+152|                  src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=80&w=1200"
+153|                  alt="UPS Logistics"
+154|                  className="w-full h-[600px] object-cover"
+155|                  referrerPolicy="no-referrer"
+156|                />
+157|                <div className="absolute inset-0 bg-gradient-to-t from-ups-brown/60 to-transparent" />
+158|                <div className="absolute bottom-10 left-10 right-10">
+159|                  <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20">
+160|                    <div className="flex items-center gap-4 mb-4">
+161|                      <div className="w-12 h-12 bg-ups-yellow rounded-2xl flex items-center justify-center">
+162|                        <Truck className="text-ups-brown w-6 h-6" />
+163|                      </div>
+164|                      <div>
+165|                        <h4 className="text-white font-bold">In Transit</h4>
+166|                        <p className="text-white/60 text-xs">
+167|                          Package ATH-882910 is moving
+168|                        </p>
+169|                      </div>
+170|                    </div>
+171|                    <div className="h-1.5 bg-white/20 rounded-full overflow-hidden">
+172|                      <motion.div
+173|                        initial={{ width: "30%" }}
+174|                        animate={{ width: "75%" }}
+175|                        transition={{
+176|                          duration: 2,
+177|                          repeat: Infinity,
+178|                          repeatType: "reverse",
+179|                        }}
+180|                        className="h-full bg-ups-yellow"
+181|                      />
+182|                    </div>
+183|                  </div>
+184|                </div>
+185|              </div>
+186|              {/* Floating elements */}
+187|              <div className="absolute -top-10 -right-10 w-40 h-40 bg-ups-yellow rounded-full blur-3xl opacity-30 -z-10" />
+188|              <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-ups-brown rounded-full blur-3xl opacity-10 -z-10" />
+189|            </motion.div>
+190|          </div>
+191|        </div>
+192|      </section>
+193|
+194|      {/* Services Grid */}
+195|      <section className="py-24 bg-gray-50">
+196|        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+197|          <div className="flex items-end justify-between mb-16">
+198|            <div>
+199|              <h2 className="text-4xl font-bold text-ups-brown tracking-tight">
+200|                Our Services
+201|              </h2>
+202|              <p className="text-gray-500 mt-2">
+203|                Comprehensive solutions for every shipping need.
+204|              </p>
+205|            </div>
+206|            <button className="flex items-center gap-2 text-ups-brown font-bold hover:gap-3 transition-all">
+207|              View All Services <ChevronRight className="w-5 h-5" />
+208|            </button>
+209|          </div>
+210|
+211|          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+212|            {services.map((service, index) => (
+213|              <motion.div
+214|                key={index}
+215|                whileHover={{ y: -10 }}
+216|                onClick={() => navigate('/tracking')}
+217|                className="bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 group cursor-pointer"
+218|              >
+219|                <div className="h-40 sm:h-48 overflow-hidden relative">
+220|                  <img
+221|                    src={service.image}
+222|                    alt={service.title}
+223|                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+224|                    referrerPolicy="no-referrer"
+225|                  />
+226|                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+227|                  <div className="absolute top-4 left-4 w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg">
+228|                    <span className="text-ups-brown">{service.icon}</span>
+229|                  </div>
+230|                </div>
+231|                <div className="p-6 sm:p-8">
+232|                  <h3 className="text-lg sm:text-xl font-bold text-ups-brown mb-2">
+233|                    {service.title}
+234|                  </h3>
+235|                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-6">
+236|                    {service.description}
+237|                  </p>
+238|                  <div className="flex items-center gap-2 text-ups-brown font-bold text-xs sm:text-sm group-hover:gap-3 transition-all">
+239|                    Get Started <ArrowRight className="w-4 h-4" />
+240|                  </div>
+241|                </div>
+242|              </motion.div>
+243|            ))}
+244|          </div>
+245|        </div>
+246|      </section>
+247|
+248|      {/* Solutions Section */}
+249|      <section className="py-32 overflow-hidden">
+250|        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+251|          <div className="bg-ups-brown rounded-[4rem] overflow-hidden flex flex-col lg:flex-row">
+252|            <div className="lg:w-1/2 p-8 sm:p-12 lg:p-20 flex flex-col justify-center">
+253|              <span className="text-ups-yellow text-[10px] font-bold uppercase tracking-[0.3em] mb-4 sm:mb-6">
+254|                Business Solutions
+255|              </span>
+256|              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-6 sm:mb-8">
+257|                Scale your business <br />
+258|                <span className="text-ups-yellow">with ATH technology.</span>
+259|              </h2>
+260|              <p className="text-white/60 text-base sm:text-lg mb-8 sm:mb-12 leading-relaxed">
+261|                From small startups to global enterprises, our integrated
+262|                technology solutions help you manage shipping, tracking, and
+263|                billing all in one place.
+264|              </p>
+265|              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12">
+266|                <div className="flex items-start gap-4">
+267|                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+268|                    <BarChart3 className="text-ups-yellow w-5 h-5" />
+269|                  </div>
+270|                  <div>
+271|                    <h4 className="text-white font-bold text-sm">
+272|                      Advanced Analytics
+273|                    </h4>
+274|                    <p className="text-white/40 text-[10px] sm:text-xs mt-1">
+275|                      Real-time data insights
+276|                    </p>
+277|                  </div>
+278|                </div>
+279|                <div className="flex items-start gap-4">
+280|                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+281|                    <Zap className="text-ups-yellow w-5 h-5" />
+282|                  </div>
+283|                  <div>
+284|                    <h4 className="text-white font-bold text-sm">
+285|                      API Integration
+286|                    </h4>
+287|                    <p className="text-white/40 text-[10px] sm:text-xs mt-1">
+288|                      Seamless workflow sync
+289|                    </p>
+290|                  </div>
+291|                </div>
+292|              </div>
+293|              <button 
+294|                onClick={() => navigate('/solutions')}
+295|                className="bg-ups-yellow text-ups-brown px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold hover:bg-white transition-all w-full sm:w-fit"
+296|              >
+297|                Explore Solutions
+298|              </button>
+299|            </div>
+300|            <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-full bg-ups-brown-dark/20 flex items-center justify-center p-8 lg:p-0">
+301|              <div className="relative w-full max-w-md aspect-video lg:aspect-square lg:w-full lg:h-full lg:max-w-none">
+302|                <img
+303|                  src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=1200"
+304|                  alt="Business Solutions"
+305|                  className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
+306|                  referrerPolicy="no-referrer"
+307|                />
+308|                <div className="absolute inset-0 bg-gradient-to-r from-ups-brown via-ups-brown/40 to-transparent lg:block hidden" />
+309|
+310|                {/* Floating Metrics Cards - Enrichment */}
+311|                <div className="absolute inset-0 flex items-center justify-center p-6 lg:p-12">
+312|                  <motion.div
+313|                    initial={{ opacity: 0, scale: 0.9 }}
+314|                    whileInView={{ opacity: 1, scale: 1 }}
+315|                    className="relative w-full h-full border border-white/10 rounded-3xl bg-white/5 backdrop-blur-xl p-6 sm:p-10 flex flex-col justify-between overflow-hidden group shadow-2xl"
+316|                  >
+317|                    <div className="flex justify-between items-start">
+318|                      <div>
+319|                        <p className="text-ups-yellow text-[10px] font-black uppercase tracking-widest mb-1">
+320|                          Global Status
+321|                        </p>
+322|                        <h4 className="text-white font-bold text-xl">
+323|                          Active Network
+324|                        </h4>
+325|                      </div>
+326|                      <div className="w-10 h-10 bg-ups-yellow/20 rounded-xl flex items-center justify-center text-ups-yellow animate-pulse">
+327|                        <Globe2 className="w-5 h-5" />
+328|                      </div>
+329|                    </div>
+330|
+331|                    <div className="space-y-4">
+332|                      <div className="flex items-end justify-between">
+333|                        <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest leading-none">
+334|                          Efficiency
+335|                        </span>
+336|                        <span className="text-ups-yellow font-black text-2xl leading-none">
+337|                          99.2%
+338|                        </span>
+339|                      </div>
+340|                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+341|                        <motion.div
+342|                          initial={{ width: 0 }}
+343|                          whileInView={{ width: "99.2%" }}
+344|                          transition={{ duration: 1.5, delay: 0.5 }}
+345|                          className="h-full bg-ups-yellow shadow-[0_0_15px_rgba(255,181,0,0.5)]"
+346|                        />
+347|                      </div>
+348|                    </div>
+349|
+350|                    <div className="grid grid-cols-2 gap-4">
+351|                      <div className="p-3 bg-white/5 rounded-2xl border border-white/5">
+352|                        <p className="text-white/40 text-[8px] font-bold uppercase mb-1">
+353|                          Total Assets
+354|                        </p>
+355|                        <p className="text-white font-bold">1.2M+</p>
+356|                      </div>
+357|                      <div className="p-3 bg-white/5 rounded-2xl border border-white/5">
+358|                        <p className="text-white/40 text-[8px] font-bold uppercase mb-1">
+359|                          Active Hubs
+360|                        </p>
+361|                        <p className="text-white font-bold">542</p>
+362|                      </div>
+363|                    </div>
+364|
+365|                    {/* Decorative scanning line */}
+366|                    <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-ups-yellow/10 to-transparent -translate-y-full group-hover:translate-y-[400%] transition-transform duration-[3s] ease-linear" />
+367|                  </motion.div>
+368|                </div>
+369|              </div>
+370|            </div>
+371|          </div>
+372|        </div>
+373|      </section>
+374|
+375|      {/* Global Network Section */}
+376|      <section className="py-24 relative">
+377|        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+378|          <div className="text-center max-w-2xl mx-auto mb-20">
+379|            <h2 className="text-4xl font-bold text-ups-brown tracking-tight mb-4">
+380|              Global Network
+381|            </h2>
+382|            <p className="text-gray-500">
+383|              Connecting every corner of the globe with unparalleled precision.
+384|            </p>
+385|          </div>
+386|
+387|          <div className="relative h-[500px] rounded-[3rem] overflow-hidden bg-gray-100 border border-gray-200">
+388|            <img
+389|              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+390|              alt="Global Network"
+391|              className="w-full h-full object-cover opacity-50 grayscale"
+392|              referrerPolicy="no-referrer"
+393|            />
+394|            <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-0">
+395|              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 md:gap-24">
+396|                <div className="text-center">
+397|                  <div className="text-3xl sm:text-5xl font-black text-ups-brown mb-2 tracking-tighter">
+398|                    220+
+399|                  </div>
+400|                  <div className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+401|                    Countries
+402|                  </div>
+403|                </div>
+404|                <div className="text-center">
+405|                  <div className="text-3xl sm:text-5xl font-black text-ups-brown mb-2 tracking-tighter">
+406|                    500k
+407|                  </div>
+408|                  <div className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+409|                    Employees
+410|                  </div>
+411|                </div>
+412|                <div className="text-center">
+413|                  <div className="text-3xl sm:text-5xl font-black text-ups-brown mb-2 tracking-tighter">
+414|                    12M
+415|                  </div>
+416|                  <div className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+417|                    Packages
+418|                  </div>
+419|                </div>
+420|                <div className="text-center">
+421|                  <div className="text-3xl sm:text-5xl font-black text-ups-brown mb-2 tracking-tighter">
+422|                    24/7
+423|                  </div>
+424|                  <div className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+425|                    Operations
+426|                  </div>
+427|                </div>
+428|              </div>
+429|            </div>
+430|
+431|            {/* Pulsing dots for "live" feel */}
+432|            <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-ups-yellow rounded-full animate-ping" />
+433|            <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-ups-yellow rounded-full animate-ping delay-700" />
+434|            <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-ups-yellow rounded-full animate-ping delay-1000" />
+435|          </div>
+436|        </div>
+437|      </section>
+438|
+439|      {/* Find Locations Section */}
+440|      <section className="py-24 bg-gray-50">
+441|        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+442|          <div className="bg-white rounded-[3rem] p-12 sm:p-20 shadow-xl border border-gray-100 flex flex-col lg:flex-row items-center gap-16">
+443|            <div className="lg:w-1/2">
+444|              <h2 className="text-4xl font-bold text-ups-brown tracking-tight mb-6">
+445|                Find an ATH Location
+446|              </h2>
+447|              <p className="text-gray-600 mb-10 leading-relaxed">
+448|                Drop off your packages, pick up supplies, or get expert shipping
+449|                advice at one of our thousands of locations worldwide.
+450|              </p>
+451|              <div className="relative">
+452|                <input
+453|                  type="text"
+454|                  placeholder="City, State, or Zip"
+455|                  className="w-full pl-6 pr-28 sm:pr-40 py-4 sm:py-5 bg-gray-50 border-2 border-transparent rounded-xl sm:rounded-2xl focus:border-ups-brown focus:bg-white transition-all outline-none text-sm sm:text-base"
+456|                />
+457|                <button className="absolute right-2 top-2 bottom-2 bg-ups-brown text-ups-yellow px-4 sm:px-6 rounded-lg sm:rounded-xl font-bold hover:bg-ups-brown/90 transition-all text-sm sm:text-base">
+458|                  Find
+459|                </button>
+460|              </div>
+461|              <div className="mt-8 flex items-center gap-6">
+462|                <div className="flex items-center gap-2 text-sm font-bold text-ups-brown">
+463|                  <div className="w-2 h-2 bg-green-500 rounded-full" />
+464|                  8,400+ Access Points
+465|                </div>
+466|                <div className="flex items-center gap-2 text-sm font-bold text-ups-brown">
+467|                  <div className="w-2 h-2 bg-green-500 rounded-full" />
+468|                  5,000+ ATH Locations
+469|                </div>
+470|              </div>
+471|            </div>
+472|            <div className="lg:w-1/2 w-full h-[300px] sm:h-[400px] rounded-3xl overflow-hidden relative border-4 border-gray-50 shadow-inner">
+473|              <USAHomeMap />
+474|              <div className="absolute inset-0 pointer-events-none bg-ups-brown/5" />
+475|            </div>
+476|          </div>
+477|        </div>
+478|      </section>
+479|
+480|      {/* Mobile App Section */}
+481|      <section className="py-24">
+482|        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+483|          <div className="grid lg:grid-cols-2 gap-16 items-center">
+484|            <div className="order-2 lg:order-1 relative">
+485|              <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-gray-100">
+486|                <img
+487|                  src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=800"
+488|                  alt="ATH Mobile App"
+489|                  className="w-full h-[600px] object-cover"
+490|                  referrerPolicy="no-referrer"
+491|                />
+492|              </div>
+493|              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-ups-yellow rounded-full blur-3xl opacity-20 -z-10" />
+494|            </div>
+495|            <div className="order-1 lg:order-2">
+496|              <span className="text-ups-brown text-xs font-bold uppercase tracking-[0.3em] mb-6 block">
+497|                Unbeatable Experience
+498|              </span>
+499|              <h2 className="text-4xl sm:text-6xl font-bold text-ups-brown tracking-tight leading-[1.1] mb-8">
+500|                Track on the go <br />
+501|
