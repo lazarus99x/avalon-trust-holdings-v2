@@ -7,6 +7,7 @@ import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 
 import { Admin } from './pages/Admin';
+import { AdminSignup } from './pages/AdminSignup';
 import { ShipmentDetail } from './pages/ShipmentDetail';
 import { Solutions } from './pages/Solutions';
 import { Support } from './pages/Support';
@@ -47,6 +48,7 @@ export default function App() {
                 <Route path="/solutions" element={<Solutions />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/worldmap" element={<WorldMap />} />
+                <Route path="/admin-signup" element={<AdminSignup />} />
 
                 <Route 
                   path="/admin" 
