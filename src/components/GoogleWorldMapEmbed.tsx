@@ -1,7 +1,7 @@
 import React from 'react';
 import { ExternalLink, Globe2, MapPin } from 'lucide-react';
 
-const GOOGLE_WORLD_QUERY = 'ATH logistics hubs worldwide';
+const GOOGLE_WORLD_QUERY = 'GSS logistics hubs worldwide';
 
 export const GoogleWorldMapEmbed: React.FC = () => {
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -32,7 +32,7 @@ export const GoogleWorldMapEmbed: React.FC = () => {
             <div className="flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-ups-brown/60">
               <span className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2">
                 <MapPin className="h-3.5 w-3.5" />
-                Query: ATH logistics hubs worldwide
+                Query: GSS logistics hubs worldwide
               </span>
               <a
                 href="https://developers.google.com/maps/documentation/embed/get-started"
@@ -53,7 +53,7 @@ export const GoogleWorldMapEmbed: React.FC = () => {
   return (
     <div className="overflow-hidden rounded-[2rem] border border-ups-brown/10 bg-white shadow-[0_30px_80px_-40px_rgba(75,46,6,0.45)]">
       <iframe
-        title="ATH World Map"
+        title="GSS World Map"
         src={embedUrl}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"

@@ -123,7 +123,7 @@ const geocodeAddress = async (
     const res = await fetch(url, {
       headers: {
         "Accept-Language": "en",
-        "User-Agent": "ATH-Clone/1.0 (admin@ath-holdings.com)",
+        "User-Agent": "GSS-Clone/1.0 (admin@gss-logistics.com)",
       },
     });
     const data = await res.json();

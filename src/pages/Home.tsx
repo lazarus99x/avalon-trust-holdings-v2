@@ -107,14 +107,14 @@ export const Home: React.FC = () => {
               className="text-center lg:text-left"
             >
               <span className="inline-block px-4 py-1.5 bg-ups-yellow/10 text-ups-brown text-[10px] sm:text-xs font-bold uppercase tracking-widest rounded-full mb-6 border border-ups-yellow/20">
-                ATH Global Shipping
+                GSS Global Shipping
               </span>
               <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-ups-brown tracking-tighter leading-[0.9] mb-8">
                 Moving the <br />
                 <span className="text-ups-yellow-dark">world forward.</span>
               </h1>
               <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-12 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                ATH provides real-time visibility and precision control over
+                GSS provides real-time visibility and precision control over
                 your logistics. Enter your tracking number below to see your
                 package's journey.
               </p>
@@ -151,7 +151,7 @@ export const Home: React.FC = () => {
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
                 <img
                   src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=80&w=1200"
-                  alt="ATH Logistics"
+                  alt="GSS Logistics"
                   className="w-full h-[600px] object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -384,7 +384,7 @@ export const Home: React.FC = () => {
               </span>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-6 sm:mb-8">
                 Scale your business <br />
-                <span className="text-ups-yellow">with ATH technology.</span>
+                <span className="text-ups-yellow">with GSS technology.</span>
               </h2>
               <p className="text-white/60 text-base sm:text-lg mb-8 sm:mb-12 leading-relaxed">
                 From small startups to global enterprises, our integrated
@@ -571,7 +571,7 @@ export const Home: React.FC = () => {
           <div className="bg-white rounded-[3rem] p-12 sm:p-20 shadow-xl border border-gray-100 flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
               <h2 className="text-4xl font-bold text-ups-brown tracking-tight mb-6">
-                Find an ATH Location
+                Find an GSS Location
               </h2>
               <p className="text-gray-600 mb-10 leading-relaxed">
                 Drop off your packages, pick up supplies, or get expert shipping
@@ -594,7 +594,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 text-sm font-bold text-ups-brown">
                   <div className="w-2 h-2 bg-green-500 rounded-full" />
-                  5,000+ ATH Locations
+                  5,000+ GSS Locations
                 </div>
               </div>
             </div>
@@ -678,7 +678,7 @@ export const Home: React.FC = () => {
               <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-gray-100">
                 <img
                   src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=800"
-                  alt="ATH Mobile App"
+                  alt="GSS Mobile App"
                   className="w-full h-[600px] object-cover"
                   referrerPolicy="no-referrer"
                 />

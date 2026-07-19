@@ -13,7 +13,7 @@ export const Solutions: React.FC = () => {
   const businessTypes = [
     {
       title: "E-commerce",
-      description: "Scale your online storefront with integrated ATH shipping APIs and automated fulfillment.",
+      description: "Scale your online storefront with integrated GSS shipping APIs and automated fulfillment.",
       icon: <Smartphone className="w-6 h-6" />,
       features: ["Custom Checkout Integration", "Real-time Rate Lookups", "Returns Management"]
     },
@@ -21,7 +21,7 @@ export const Solutions: React.FC = () => {
       title: "Small Business",
       description: "Get enterprise-level tools designed for growing businesses. Save on shipping costs.",
       icon: <Building2 className="w-6 h-6" />,
-      features: ["ATH My Choice for Business", "Volume Discounts", "Administrative Control"]
+      features: ["GSS My Choice for Business", "Volume Discounts", "Administrative Control"]
     },
     {
       title: "Enterprise",
@@ -50,7 +50,7 @@ export const Solutions: React.FC = () => {
               <span className="text-ups-yellow">every shipment.</span>
             </h1>
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              ATH provides more than just delivery. We provide the technical infrastructure and data-driven insights to help your business compete globally.
+              GSS provides more than just delivery. We provide the technical infrastructure and data-driven insights to help your business compete globally.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
               <button 
@@ -126,7 +126,7 @@ export const Solutions: React.FC = () => {
               <div className="space-y-6 pt-4">
                 {[
                   { icon: <LineChart className="w-5 h-5" />, title: "Precision Forecasting", desc: "Predict future shipping needs based on historical data." },
-                  { icon: <Code2 className="w-5 h-5" />, title: "Powerful APIs", desc: "Integrate ATH features directly into your existing software." }
+                  { icon: <Code2 className="w-5 h-5" />, title: "Powerful APIs", desc: "Integrate GSS features directly into your existing software." }
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-ups-yellow/20 transition-all">
                     <div className="p-3 bg-white rounded-xl text-ups-brown shadow-md">{item.icon}</div>
@@ -191,7 +191,7 @@ export const Solutions: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="w-16 h-1 bg-ups-yellow mx-auto mb-12 rounded-full" />
           <h2 className="text-3xl sm:text-5xl font-black text-ups-brown leading-[1.1] tracking-tight mb-8">
-            "ATH transformed our global <br /> supply chain in under six months."
+            "GSS transformed our global <br /> supply chain in under six months."
           </h2>
           <p className="text-gray-500 font-medium text-lg uppercase tracking-widest">
             — GLOBAL LOGISTICS DIRECTOR, FORTUNE 500
@@ -204,7 +204,7 @@ export const Solutions: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="text-center md:text-left">
             <h2 className="text-4xl font-black text-ups-brown leading-none tracking-tighter mb-4">Ready to optimize?</h2>
-            <p className="text-ups-brown/60 font-bold max-w-sm">Connect with a ATH expert today to build your custom business profile.</p>
+            <p className="text-ups-brown/60 font-bold max-w-sm">Connect with a GSS expert today to build your custom business profile.</p>
           </div>
           <div className="flex items-center gap-4 w-full md:w-auto">
             <button 
