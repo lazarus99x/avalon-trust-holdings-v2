@@ -86,6 +86,15 @@ export const Login: React.FC = () => {
               {!loading && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
             </button>
           </form>
+
+          <div className="mt-6 pt-6 border-t border-gray-100 text-center">
+            <a
+              href="/admin-signup"
+              className="text-xs font-bold text-ups-brown uppercase tracking-widest hover:underline"
+            >
+              Create an account
+            </a>
+          </div>
         </div>
       </div>
     </div>

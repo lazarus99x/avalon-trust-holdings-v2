@@ -1,35 +1,44 @@
 import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { Package, Mail, Lock, ArrowRight, ShieldCheck, UserPlus } from 'lucide-react';
+import { Mail, Lock, ArrowRight, ShieldCheck, UserPlus, MailCheck } from 'lucide-react';
 
-// TEMPORARY. This route exists only so a new admin account can be created, then it is removed again.
+// TEMPORARY. Exists only so the new admin account can be created, then it is removed
+// and this route is deleted from App.tsx.
 //
-// The public.users row is created by the on_auth_user_created DB trigger as role = 'customer'
-// (the service-role API is not available in the browser, and RLS forbids a client writing
-// role = 'admin'). Promote after signup with:
-//     node scripts/create-admin.mjs "<this email>" "<password>"
-// or by running supabase/fix-admin.sql with the new email.
+// The account is promoted to role = 'admin' by the DB trigger in
+// supabase/TEMP-admin-signup.sql (a browser cannot grant itself admin - RLS forbids it).
 export const AdminSignup: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [sentTo, setSentTo] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
-    setSuccess('');
+    setSentTo('');
 
     try {
-      const { error: signUpError } = await supabase.auth.signUp({ email, password });
+      const { data, error: signUpError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/login`,
+        },
+      });
       if (signUpError) throw signUpError;
 
-      setSuccess(
-        'Account created. If the project requires email confirmation, use the Supabase dashboard to confirm it. ' +
-        "Then promote it to admin with: node scripts/create-admin.mjs \"" + email + "\" \"<password>\""
-      );
+      // If the project has email confirmation turned OFF, signUp returns a live session
+      // and the user is already signed in - send them straight to the panel.
+      if (data.session) {
+        window.location.href = '/admin';
+        return;
+      }
+
+      setSentTo(email);
+      setPassword('');
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -45,7 +54,7 @@ export const AdminSignup: React.FC = () => {
             <UserPlus className="text-ups-yellow w-8 h-8" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight">Create Admin Account</h1>
-          <p className="text-ups-yellow/70 text-sm mt-2 font-medium">Temporary route. Removed again once the account exists.</p>
+          <p className="text-ups-yellow/70 text-sm mt-2 font-medium">Temporary. Removed once the account exists.</p>
         </div>
 
         <div className="p-8">
@@ -55,9 +64,17 @@ export const AdminSignup: React.FC = () => {
               {error}
             </div>
           )}
-          {success && (
-            <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-xl text-sm border border-green-200 break-words">
-              {success}
+
+          {sentTo && (
+            <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-xl text-sm border border-green-200 flex items-start gap-3">
+              <MailCheck className="w-5 h-5 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold">Confirmation email sent.</p>
+                <p className="mt-1 break-words">
+                  Check <span className="font-medium">{sentTo}</span>, click the link to confirm, then sign in at{' '}
+                  <a href="/login" className="underline">the login page</a>.
+                </p>
+              </div>
             </div>
           )}
 
