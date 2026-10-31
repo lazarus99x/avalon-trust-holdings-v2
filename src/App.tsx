@@ -12,10 +12,9 @@ import { Solutions } from './pages/Solutions';
 import { Support } from './pages/Support';
 import { Tracking } from './pages/Tracking';
 import { WorldMap } from './pages/WorldMap';
-import { AdminSignup } from './pages/AdminSignup';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { user, profile, loading } = useAuth();
 
   if (loading) {
     return (
@@ -26,7 +25,12 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   }
 
   if (!user) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/login" replace />;
+  }
+
+  // Admin-only. Role comes from the public.users row (never client metadata).
+  if (profile?.role !== 'admin') {
+    return <Navigate to="/" replace />;
   }
 
   return <>{children}</>;
@@ -48,7 +52,6 @@ export default function App() {
                 <Route path="/solutions" element={<Solutions />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/worldmap" element={<WorldMap />} />
-                <Route path="/admin-signup" element={<AdminSignup />} />
 
                 <Route 
                   path="/admin" 

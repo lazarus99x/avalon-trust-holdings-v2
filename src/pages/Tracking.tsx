@@ -138,22 +138,6 @@ export const Tracking: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Login CTA */}
-      <section className="py-20 bg-ups-yellow/5">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="p-10 rounded-[3rem] border-2 border-dashed border-ups-yellow/30 space-y-6">
-            <h3 className="text-2xl font-black text-ups-brown tracking-tight">Manage all your shipments in one place</h3>
-            <p className="text-gray-500 font-medium">Sign in to your GSS My Choice account to see all your active shipments, set delivery preferences, and get advanced notifications.</p>
-            <button 
-              onClick={() => navigate('/login')}
-              className="bg-ups-brown text-ups-yellow px-10 py-4 rounded-2xl font-bold hover:bg-ups-brown/90 transition-all shadow-xl"
-            >
-              Sign In to Your Account
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

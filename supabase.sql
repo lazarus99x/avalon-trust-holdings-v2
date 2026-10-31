@@ -49,7 +49,7 @@ BEGIN
   VALUES (
     new.id, 
     new.email, 
-    CASE WHEN new.email = 'lazarus99x@gmail.com' THEN 'admin' ELSE 'customer' END,
+    'customer',
     coalesce(new.raw_user_meta_data->>'full_name', '')
   );
   RETURN new;

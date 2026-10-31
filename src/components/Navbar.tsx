@@ -7,7 +7,7 @@ import { cn } from '../lib/utils';
 import athLogo from '../athlogo.svg';
 
 export const Navbar: React.FC = () => {
-  const { user, profile, isStaff } = useAuth();
+  const { user, profile, isAdmin } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-3 sm:gap-6">
-              {user && isStaff && (
+              {user && isAdmin && (
                 <Link to="/admin" className="hidden md:flex items-center gap-2 text-xs font-bold text-ups-brown bg-ups-yellow/20 px-4 py-2 rounded-xl border border-ups-yellow/30 hover:bg-ups-yellow/30 transition-all">
                   <Shield className="w-4 h-4" /> Admin Panel
                 </Link>
@@ -125,7 +125,7 @@ export const Navbar: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-gray-100 space-y-4">
-              {user && isStaff && (
+              {user && isAdmin && (
                 <Link
                   to="/admin"
                   onClick={() => setIsMobileMenuOpen(false)}
