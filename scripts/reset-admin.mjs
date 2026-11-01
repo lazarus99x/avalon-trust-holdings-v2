@@ -10,7 +10,7 @@
 import "dotenv/config";
 import { createClient } from "@supabase/supabase-js";
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "Leoanthony197@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "lazarus99x@gmail.com";
 const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
 const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
